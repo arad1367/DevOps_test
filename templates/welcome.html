@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Welcome page</title>
+</head>
+<body>
+    {% if form_send: %}
+    <h1>Hi! My name is {{ name }}</h1>
+    <br>
+    <h1 style="color:{{ color }};"> My favorite color is {{ color }} </h1>
+    {% else: %}
+    <form name="form_send" action="{{ url_for('welcome') }}" method="POST" class="form-example">
+      <div class="form-example">
+        <label for="name">Enter your name plesae: </label>
+        <input type="text" name="name" id="name" required>
+      </div>
+      <div class="form-example">
+        <label for="color">Enter your favorite color please: </label>
+        <input type="text" name="color" id="color" required>
+      </div>
+      <div class="form-example">
+        <input type="submit" value="Click me!">
+      </div>
+    </form>
+    {% endif %}
+</body>
+</html>
